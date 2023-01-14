@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		3ADD7B5029712E7300A91085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B4F29712E7300A91085 /* AppDelegate.swift */; };
 		3ADD7B5229712E7300A91085 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B5129712E7300A91085 /* SceneDelegate.swift */; };
-		3ADD7B5429712E7300A91085 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B5329712E7300A91085 /* ViewController.swift */; };
-		3ADD7B5729712E7300A91085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7B5529712E7300A91085 /* Main.storyboard */; };
 		3ADD7B5929712E7400A91085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7B5829712E7400A91085 /* Assets.xcassets */; };
-		3ADD7B5C29712E7400A91085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7B5A29712E7400A91085 /* LaunchScreen.storyboard */; };
 		3ADD7B6729712E7400A91085 /* CryptoMarketplaceSBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B6629712E7400A91085 /* CryptoMarketplaceSBTests.swift */; };
 		3ADD7B7129712E7400A91085 /* CryptoMarketplaceSBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B7029712E7400A91085 /* CryptoMarketplaceSBUITests.swift */; };
 		3ADD7B7329712E7400A91085 /* CryptoMarketplaceSBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B7229712E7400A91085 /* CryptoMarketplaceSBUITestsLaunchTests.swift */; };
+		3ADD7B8029712EC800A91085 /* CoinListMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B7F29712EC800A91085 /* CoinListMainView.swift */; };
+		3ADD7B82297259C400A91085 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B81297259C400A91085 /* CoinTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +38,15 @@
 		3ADD7B4C29712E7300A91085 /* CryptoMarketplaceSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoMarketplaceSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADD7B4F29712E7300A91085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADD7B5129712E7300A91085 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3ADD7B5329712E7300A91085 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3ADD7B5629712E7300A91085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3ADD7B5829712E7400A91085 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3ADD7B5B29712E7400A91085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ADD7B5D29712E7400A91085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ADD7B6229712E7400A91085 /* CryptoMarketplaceSBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoMarketplaceSBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADD7B6629712E7400A91085 /* CryptoMarketplaceSBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMarketplaceSBTests.swift; sourceTree = "<group>"; };
 		3ADD7B6C29712E7400A91085 /* CryptoMarketplaceSBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoMarketplaceSBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADD7B7029712E7400A91085 /* CryptoMarketplaceSBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMarketplaceSBUITests.swift; sourceTree = "<group>"; };
 		3ADD7B7229712E7400A91085 /* CryptoMarketplaceSBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMarketplaceSBUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3ADD7B7F29712EC800A91085 /* CoinListMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinListMainView.swift; sourceTree = "<group>"; };
+		3ADD7B81297259C400A91085 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +99,9 @@
 			children = (
 				3ADD7B4F29712E7300A91085 /* AppDelegate.swift */,
 				3ADD7B5129712E7300A91085 /* SceneDelegate.swift */,
-				3ADD7B5329712E7300A91085 /* ViewController.swift */,
-				3ADD7B5529712E7300A91085 /* Main.storyboard */,
+				3ADD7B7F29712EC800A91085 /* CoinListMainView.swift */,
+				3ADD7B81297259C400A91085 /* CoinTableViewCell.swift */,
 				3ADD7B5829712E7400A91085 /* Assets.xcassets */,
-				3ADD7B5A29712E7400A91085 /* LaunchScreen.storyboard */,
 				3ADD7B5D29712E7400A91085 /* Info.plist */,
 			);
 			path = CryptoMarketplaceSB;
@@ -231,9 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ADD7B5C29712E7400A91085 /* LaunchScreen.storyboard in Resources */,
 				3ADD7B5929712E7400A91085 /* Assets.xcassets in Resources */,
-				3ADD7B5729712E7300A91085 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +253,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ADD7B5429712E7300A91085 /* ViewController.swift in Sources */,
 				3ADD7B5029712E7300A91085 /* AppDelegate.swift in Sources */,
+				3ADD7B8029712EC800A91085 /* CoinListMainView.swift in Sources */,
 				3ADD7B5229712E7300A91085 /* SceneDelegate.swift in Sources */,
+				3ADD7B82297259C400A91085 /* CoinTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +291,6 @@
 			targetProxy = 3ADD7B6D29712E7400A91085 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3ADD7B5529712E7300A91085 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3ADD7B5629712E7300A91085 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3ADD7B5A29712E7400A91085 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3ADD7B5B29712E7400A91085 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3ADD7B7429712E7400A91085 /* Debug */ = {
@@ -441,8 +418,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoMarketplaceSB/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,8 +444,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoMarketplaceSB/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

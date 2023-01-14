@@ -41,17 +41,9 @@ class CoinListViewModel {
                     self?.coinList = self!.coinNameList.map({ symbolString in
                         return CoinDataModel(id: symbolString, name: symbolString, symbol: symbolString)//TODO: get actual data (need additional call? or is there a call (list()?) that returns all info...
                     })
-//                    if let coinList = decodedJSONDictionary["description"] {
-//                        self?.coinList = coinList
-                        print("self.coinList: \(self?.coinList[0...5])")
-//                        print("self.coinList.count: \(self?.coinList.count)")
-//                    }
                 }
                 self?.dataChanged?()
             }
-//            catch let jsonError {
-//                print("Error decoding JSON: \(jsonError)")
-//            }
         }
         task.resume()
     }

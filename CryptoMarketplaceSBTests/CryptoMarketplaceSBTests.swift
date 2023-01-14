@@ -9,14 +9,36 @@ import XCTest
 @testable import CryptoMarketplaceSB
 
 final class CryptoMarketplaceSBTests: XCTestCase {
+    
+    var app: XCUIApplication!
+
+
+
+//    func testLaunchPerformance() {
+//        // Measure the launch time
+//        let start = Date()
+//        app.launch()
+//        let launchTime = Date().timeIntervalSince(start)
+//        print("App launched in \(launchTime) seconds")
+//    }
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+//        override func setUp() {
+            super.setUp()
+            continueAfterFailure = false
+            app = XCUIApplication()
+        //}
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testLaunchPerformance() {
+            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+                app.launch()
+            }
+        }
 
     func testExample() throws {
         // This is an example of a functional test case.

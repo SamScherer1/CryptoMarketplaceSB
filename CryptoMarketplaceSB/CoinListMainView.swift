@@ -17,11 +17,13 @@ struct CoinDataModel: Decodable {
 
 class CoinListViewModel {
     var coinList = [CoinDataModel]()
+    var coinNameList = [String]()
     var dataChanged: (() -> ())?
 
     func fetchCoins() {
-        let url = URL(string: "https://api.coingecko.com/api/v3/coins/list")!
+        let url = URL(string: "https://api.coingecko.com/api/v3/simple/supported_vs_currencies")!
         let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            print("entered task....")
             if let error = error {
                 print("Error: \(error)")
                 return
@@ -33,9 +35,17 @@ class CoinListViewModel {
             }
 
             do {
-                if let decodedJSONDictionary = try? JSONDecoder().decode([String: [CoinDataModel]].self, from: data) {
-                    self?.coinList = decodedJSONDictionary["description"]!//TODO: think about unwrap
-                    print("self.coinList: \(self?.coinList[0...5])")
+                if let decodedJSON = try? JSONDecoder().decode([String].self, from: data) {
+                    print("decodedJSONDictionary: \(decodedJSON)")
+                    self?.coinNameList = decodedJSON
+                    self?.coinList = self!.coinNameList.map({ symbolString in
+                        return CoinDataModel(id: symbolString, name: symbolString, symbol: symbolString)//TODO: get actual data (need additional call? or is there a call (list()?) that returns all info...
+                    })
+//                    if let coinList = decodedJSONDictionary["description"] {
+//                        self?.coinList = coinList
+                        print("self.coinList: \(self?.coinList[0...5])")
+//                        print("self.coinList.count: \(self?.coinList.count)")
+//                    }
                 }
                 self?.dataChanged?()
             }
@@ -77,6 +87,7 @@ class CoinListTableView: UITableView, UITableViewDataSource {
             }
         }
         coinListViewModel.fetchCoins()
+        register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         dataSource = self
     }
 

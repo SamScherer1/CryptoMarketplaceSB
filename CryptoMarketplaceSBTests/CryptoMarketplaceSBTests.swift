@@ -25,10 +25,20 @@ final class CryptoMarketplaceSBTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
+    func testSimpleFetchCoinsTime() throws {
+        // This is an example of a performance test case.
+        self.measure {
+            CoinListViewModel().fetchCoins()
+        }
+    }
+    
     func testFetchCoinsTime() throws {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            CoinListViewModel().getCoinList { coinList in
+                guard let coinList else { fatalError() }
+                print("coinList.first: \(coinList.first)")
+            }
         }
     }
 

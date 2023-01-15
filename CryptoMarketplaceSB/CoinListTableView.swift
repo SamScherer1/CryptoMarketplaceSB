@@ -23,7 +23,11 @@ class CoinListTableView: UITableView, UITableViewDataSource {
                 self?.reloadData()
             }
         }
-        coinListViewModel.fetchCoins()
+        coinListViewModel.getCoinList(completion: { [weak self] coinList in
+            if let coinList { 
+                self?.coinListViewModel.coinList = coinList
+            }
+        })
         register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         dataSource = self
     }

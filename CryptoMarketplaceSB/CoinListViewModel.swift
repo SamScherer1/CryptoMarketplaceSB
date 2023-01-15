@@ -18,8 +18,28 @@ class CoinListViewModel {
     var coinList = [CoinDataModel]()
     var coinNameList = [String]()
     var dataChanged: (() -> ())?
+    
+    func getCoinList(completion: @escaping ([CoinDataModel]?) -> Void) {
+        let url = URL(string: "https://api.coingecko.com/api/v3/coins/list")!
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let coinList = try JSONDecoder().decode([CoinDataModel].self, from: data)
+                    completion(coinList)
+                    self.dataChanged?()
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                    completion(nil)
+                }
+            } else {
+                print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
 
-    func fetchCoins() {
+    func fetchSupportedCoinSymbols() {
         let url = URL(string: "https://api.coingecko.com/api/v3/simple/supported_vs_currencies")!
         let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             print("entered task....")

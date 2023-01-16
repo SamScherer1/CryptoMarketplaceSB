@@ -8,23 +8,7 @@
 import UIKit
 import SDWebImage
 
-class CoinDetailViewController: UIViewController {
-    var coin: CoinDataModel!
-
-    var coinNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    var coinSymbolLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    var coinImageView = UIImageView(image: UIImage(named: "circle"))
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        coinNameLabel.text = coin.name
-        coinSymbolLabel.text = coin.symbol
-        // You can load image from url by using a library like SDWebImage
-        coinImageView.sd_setImage(with: URL(string: "https://coincheckup.com/images/coins/\(coin.id).png"))
-    }
-}
-
-class CoinListTableView: UITableView, UITableViewDataSource {
+class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     var coinListViewModel = CoinListViewModel()
     var navigationController: UINavigationController
     
@@ -32,6 +16,7 @@ class CoinListTableView: UITableView, UITableViewDataSource {
         self.coinListViewModel = coinListViewModel
         self.navigationController = navigationController
         super.init(frame: CGRect(), style: .plain)
+        self.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +43,6 @@ class CoinListTableView: UITableView, UITableViewDataSource {
         })
         register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         dataSource = self
-        allowsSelection = false
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

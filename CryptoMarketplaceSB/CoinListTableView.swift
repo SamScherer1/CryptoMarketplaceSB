@@ -6,9 +6,37 @@
 //
 
 import UIKit
+import SDWebImage
+
+class CoinDetailViewController: UIViewController {
+    var coin: CoinDataModel!
+
+    var coinNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    var coinSymbolLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    var coinImageView = UIImageView(image: UIImage(named: "circle"))
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        coinNameLabel.text = coin.name
+        coinSymbolLabel.text = coin.symbol
+        // You can load image from url by using a library like SDWebImage
+        coinImageView.sd_setImage(with: URL(string: "https://coincheckup.com/images/coins/\(coin.id).png"))
+    }
+}
 
 class CoinListTableView: UITableView, UITableViewDataSource {
     var coinListViewModel = CoinListViewModel()
+    var navigationController: UINavigationController
+    
+    init(coinListViewModel: CoinListViewModel = CoinListViewModel(), navigationController: UINavigationController) {
+        self.coinListViewModel = coinListViewModel
+        self.navigationController = navigationController
+        super.init(frame: CGRect(), style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -24,12 +52,20 @@ class CoinListTableView: UITableView, UITableViewDataSource {
             }
         }
         coinListViewModel.getCoinList(completion: { [weak self] coinList in
-            if let coinList { 
+            if let coinList {
                 self?.coinListViewModel.coinList = coinList
             }
         })
         register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         dataSource = self
+        allowsSelection = false
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCoin = coinListViewModel.coinList[indexPath.row]
+        let detailVC = CoinDetailViewController()
+        detailVC.coin = selectedCoin
+        navigationController.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

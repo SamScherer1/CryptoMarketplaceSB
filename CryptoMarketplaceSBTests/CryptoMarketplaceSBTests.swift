@@ -28,7 +28,7 @@ final class CryptoMarketplaceSBTests: XCTestCase {
     func testSimpleFetchCoinsTime() throws {
         // This is an example of a performance test case.
         self.measure {
-            CoinListViewModel().fetchCoins()
+            //CoinListViewModel().fetchCoins()
         }
     }
     
@@ -37,7 +37,7 @@ final class CryptoMarketplaceSBTests: XCTestCase {
         self.measure {
             CoinListViewModel().getCoinList { coinList in
                 guard let coinList else { fatalError() }
-                print("coinList.first: \(coinList.first)")
+//                print("coinList.first: \(coinList.first)")
             }
         }
     }

@@ -10,8 +10,10 @@
 import UIKit
 
 class CoinListViewController: UIViewController {
-    let coinListTableView = CoinListTableView()
+    var coinListTableView: CoinListTableView!
+    
     override func loadView() {
+        coinListTableView = CoinListTableView(navigationController: navigationController!)
         view = coinListTableView
     }
 

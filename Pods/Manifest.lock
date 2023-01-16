@@ -1,18 +1,22 @@
 PODS:
+  - Highcharts (10.3.2)
   - SDWebImage (5.13.2):
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
 
 DEPENDENCIES:
+  - Highcharts
   - SDWebImage
 
 SPEC REPOS:
   trunk:
+    - Highcharts
     - SDWebImage
 
 SPEC CHECKSUMS:
+  Highcharts: 90285f0e0247f737acc346aa7416a6af346a0399
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
 
-PODFILE CHECKSUM: 2ec835adc69180d151869699047c03bdf248a8da
+PODFILE CHECKSUM: 30d6ffb5394f87f2fb52116c46cd535b28234718
 
 COCOAPODS: 1.11.3

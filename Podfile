@@ -7,6 +7,7 @@ target 'CryptoMarketplaceSB' do
 
   # Pods for CryptoMarketplaceSB
   pod 'SDWebImage'
+  pod 'Highcharts'
 
 
   target 'CryptoMarketplaceSBTests' do

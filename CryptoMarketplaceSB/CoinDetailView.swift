@@ -6,24 +6,80 @@
 //
 
 import UIKit
+import Highcharts
+
+let kMarginWidth = 10.0
 
 class CoinDetailViewController: UIViewController {
     var coin: CoinDataModel!
 
-    var coinNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    var coinSymbolLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    var coinImageView = UIImageView(image: UIImage(named: "circle"))
+//    var coinNameLabel = labelWith(fontSize: 24, textColor: .label)
+//    var coinSymbolLabel = labelWith(fontSize: 16, textColor: .secondaryLabel)
+    var coinNameLabel = labelWith(fontSize: 24, textColor: .white)
+    var coinSymbolLabel = labelWith(fontSize: 16, textColor: .lightGray)
+    var chartView = {
+        let chart = HIChartView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        chart.translatesAutoresizingMaskIntoConstraints = false
+        return chart
+    }()
+    var coinImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "circle"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         coinNameLabel.text = coin.name
-        coinSymbolLabel.text = coin.symbol
-        // You can load image from url by using a library like SDWebImage
+        coinSymbolLabel.text = formattedSymbol()
         coinImageView.sd_setImage(with: URL(string: "https://coincheckup.com/images/coins/\(coin.id).png"))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back",
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(goBack))
+        setupConstrints()
+    }
+    
+    func setupConstrints() {
+        
+        view.addSubview(coinImageView)
+        
+        NSLayoutConstraint.activate([
+            coinImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: kMarginWidth),
+            coinImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: kMarginWidth),
+            coinImageView.widthAnchor.constraint(equalTo: coinImageView.heightAnchor),
+            coinImageView.heightAnchor.constraint(equalToConstant: 100.0)
+        ])
+        
+        view.addSubview(coinNameLabel)
+        
+        NSLayoutConstraint.activate([
+            coinNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: kMarginWidth),
+            coinNameLabel.leftAnchor.constraint(equalTo: coinImageView.rightAnchor, constant: kMarginWidth)
+        ])
+        
+        view.addSubview(coinSymbolLabel)
+        
+        NSLayoutConstraint.activate([
+            coinSymbolLabel.topAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: kMarginWidth),
+            coinSymbolLabel.leftAnchor.constraint(equalTo: coinImageView.rightAnchor, constant: kMarginWidth)
+        ])
+        
+        view.addSubview(coinImageView)
+    }
+    
+    /// Basically just adds parentheses to the symbol...
+    func formattedSymbol() -> String {
+        return "(\(coin.symbol))"
+    }
+    
+    static func labelWith(fontSize: Double, textColor: UIColor) -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.tintColor = textColor
+        return label
     }
     
     @objc func goBack() {

@@ -25,17 +25,22 @@ class CoinTableViewCell: UITableViewCell {
         // Add nameLabel
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16)
+        ])
+
 
         // Add symbolLabel
         addSubview(symbolLabel)
         symbolLabel.translatesAutoresizingMaskIntoConstraints = false
-        symbolLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8).isActive = true
-        symbolLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        symbolLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        symbolLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        NSLayoutConstraint.activate([
+            symbolLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            symbolLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            symbolLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            symbolLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+        ])
     }
 
     func configure(with coin: CoinDataModel) {

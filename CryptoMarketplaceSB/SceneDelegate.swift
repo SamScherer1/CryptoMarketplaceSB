@@ -15,6 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         let navigationController = UINavigationController(rootViewController: CoinListViewController())
+//        let navigationController = UINavigationController()
+        self.window?.rootViewController = navigationController
+        MyNavigationService.shared.initialize(navigationController: navigationController)
         window?.windowScene = windowScene
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

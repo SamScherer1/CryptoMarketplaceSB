@@ -10,11 +10,9 @@ import SDWebImage
 
 class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     var coinListViewModel = CoinListViewModel()
-    var navigationController: UINavigationController
     
-    init(coinListViewModel: CoinListViewModel = CoinListViewModel(), navigationController: UINavigationController) {
+    init(coinListViewModel: CoinListViewModel = CoinListViewModel()) {
         self.coinListViewModel = coinListViewModel
-        self.navigationController = navigationController
         super.init(frame: CGRect(), style: .plain)
         self.delegate = self
     }
@@ -47,9 +45,10 @@ class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCoin = coinListViewModel.coinList[indexPath.row]
-        let detailVC = CoinDetailViewController()
-        detailVC.coin = selectedCoin
-        navigationController.pushViewController(detailVC, animated: true)
+        coinListViewModel.pushDetailFor(coin: selectedCoin)
+        //TODO: delete below...
+//        coinListViewModel.pushDetailFor(coin: CoinDataModel)
+//        navigationController.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

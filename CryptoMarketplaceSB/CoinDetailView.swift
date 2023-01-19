@@ -11,11 +11,9 @@ import Highcharts
 let kMarginWidth = 10.0
 
 class CoinDetailViewController: UIViewController {
-    var coin: CoinDataModel!
-
-//    var coinNameLabel = labelWith(fontSize: 24, textColor: .label)
-//    var coinSymbolLabel = labelWith(fontSize: 16, textColor: .secondaryLabel)
-    var coinNameLabel = labelWith(fontSize: 24, textColor: .white)
+    var coin: CoinModel!
+    
+    var coinNameLabel = labelWith(fontSize: 24, textColor: .darkGray)
     var coinSymbolLabel = labelWith(fontSize: 16, textColor: .lightGray)
     var chartView = {
         let chart = HIChartView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -27,7 +25,16 @@ class CoinDetailViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
+    
+    init(coin: CoinModel) {
+        self.coin = coin
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -38,7 +45,9 @@ class CoinDetailViewController: UIViewController {
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(goBack))
+        navigationItem.leftBarButtonItem?.tintColor = .titleHighlight
         setupConstrints()
+        self.navigationItem.title = "\(coin.name) Details"
     }
     
     func setupConstrints() {
@@ -65,8 +74,6 @@ class CoinDetailViewController: UIViewController {
             coinSymbolLabel.topAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: kMarginWidth),
             coinSymbolLabel.leftAnchor.constraint(equalTo: coinImageView.rightAnchor, constant: kMarginWidth)
         ])
-        
-        view.addSubview(coinImageView)
     }
     
     /// Basically just adds parentheses to the symbol...
@@ -75,7 +82,7 @@ class CoinDetailViewController: UIViewController {
     }
     
     static func labelWith(fontSize: Double, textColor: UIColor) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: fontSize)
         label.tintColor = textColor

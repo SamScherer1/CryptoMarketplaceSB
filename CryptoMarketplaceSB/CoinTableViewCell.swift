@@ -107,7 +107,7 @@ class CoinTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(priceLabelConstraints)
     }
 
-    func configure(with coin: CoinDataModel) {
+    func configure(with coin: CoinModel) {
 //        nameLabel.text = coin.name
 //        symbolLabel.text = coin.symbol
         

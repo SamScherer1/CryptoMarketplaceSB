@@ -8,23 +8,23 @@
 import UIKit
 
 
-struct CoinDataModel: Decodable {
+struct CoinModel: Decodable {
     let id: String
     let name: String
     let symbol: String
 }
 
 class CoinListViewModel {
-    var coinList = [CoinDataModel]()
+    var coinList = [CoinModel]()
     var coinNameList = [String]()
     var dataChanged: (() -> ())?
     
-    func getCoinList(completion: @escaping ([CoinDataModel]?) -> Void) {
+    func getCoinList(completion: @escaping ([CoinModel]?) -> Void) {
         let url = URL(string: "https://api.coingecko.com/api/v3/coins/list")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 do {
-                    let coinList = try JSONDecoder().decode([CoinDataModel].self, from: data)
+                    let coinList = try JSONDecoder().decode([CoinModel].self, from: data)
                     completion(coinList)
                     self.dataChanged?()
                 } catch {
@@ -37,6 +37,10 @@ class CoinListViewModel {
             }
         }
         task.resume()
+    }
+    
+    func pushDetailFor(coin: CoinModel) {
+        MyNavigationService.shared.goToDetailView(coin: coin)
     }
 
     func fetchSupportedCoinSymbols() {
@@ -58,7 +62,7 @@ class CoinListViewModel {
                     print("decodedJSONDictionary: \(decodedJSON)")
                     self?.coinNameList = decodedJSON
                     self?.coinList = self!.coinNameList.map({ symbolString in
-                        return CoinDataModel(id: symbolString, name: symbolString, symbol: symbolString)//TODO: get actual data (need additional call? or is there a call (list()?) that returns all info...
+                        return CoinModel(id: symbolString, name: symbolString, symbol: symbolString)//TODO: get actual data (need additional call? or is there a call (list()?) that returns all info...
                     })
                 }
                 self?.dataChanged?()

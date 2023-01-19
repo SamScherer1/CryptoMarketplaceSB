@@ -30,7 +30,6 @@ class MyNavigationService {
 //    }
     
     func popToRoot() {
-//        navigationController.popViewController(animated: true)
         navigationController.popToRootViewController(animated: true)
     }
 

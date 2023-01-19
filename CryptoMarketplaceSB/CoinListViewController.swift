@@ -14,12 +14,13 @@ class CoinListViewController: UIViewController {
     
     override func loadView() {
         coinListTableView = CoinListTableView()
-        self.navigationItem.title = "Supported Coins"
         view = coinListTableView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.edgesForExtendedLayout = UIRectEdge.all
+        self.navigationItem.title = "Supported Coins"
         coinListTableView.setup()
     }
 

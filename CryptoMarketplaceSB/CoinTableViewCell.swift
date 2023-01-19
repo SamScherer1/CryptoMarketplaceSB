@@ -56,32 +56,7 @@ class CoinTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented (this is not a storyboard project)")
     }
 
-//    func setupViews() {
-//        // Add nameLabel
-//
-//        contentView.addSubview(nameLabel)
-//        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-//            nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-//            nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16)
-//        ])
-//
-//
-//        // Add symbolLabel
-//        contentView.addSubview(symbolLabel)
-//        symbolLabel.textColor = .blue
-//        symbolLabel.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            symbolLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-//            symbolLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-//            symbolLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-//            symbolLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
-//        ])
-//
-//
-//    }
-    
+
     func setupViews() {
         contentView.addSubview(nameLabel)
         contentView.addSubview(symbolLabel)
@@ -108,11 +83,9 @@ class CoinTableViewCell: UITableViewCell {
     }
 
     func configure(with coin: CoinModel) {
-//        nameLabel.text = coin.name
-//        symbolLabel.text = coin.symbol
-        
-        nameLabel.text = "coin.name"
-        symbolLabel.text = "coin.symbol"
-        priceLabel.text = "coin.price"
+        nameLabel.text = coin.name
+        symbolLabel.text = coin.symbol
+    
+        priceLabel.text = "coin.price"//TODO:
     }
 }

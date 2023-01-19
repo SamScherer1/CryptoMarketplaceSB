@@ -57,10 +57,9 @@ class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath)
+        let cell = dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! CoinTableViewCell
         let coin = coinListViewModel.coinList[indexPath.row]
-        cell.textLabel?.text = coin.name
-        cell.detailTextLabel?.text = coin.symbol
+        cell.configure(with:coin)
         return cell
     }
 }

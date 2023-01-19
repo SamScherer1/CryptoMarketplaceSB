@@ -14,6 +14,7 @@ class CoinListViewController: UIViewController {
     
     override func loadView() {
         coinListTableView = CoinListTableView(navigationController: navigationController!)
+        self.navigationItem.title = "Supported Coins"
         view = coinListTableView
     }
 

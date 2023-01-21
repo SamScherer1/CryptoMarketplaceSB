@@ -55,7 +55,7 @@ class CoinDetailViewController: UIViewController {
         view.addSubview(coinImageView)
         
         NSLayoutConstraint.activate([
-            coinImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: kMarginWidth),
+            coinImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: kMarginWidth),
             coinImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: kMarginWidth),
             coinImageView.widthAnchor.constraint(equalTo: coinImageView.heightAnchor),
             coinImageView.heightAnchor.constraint(equalToConstant: 100.0)
@@ -64,7 +64,7 @@ class CoinDetailViewController: UIViewController {
         view.addSubview(coinNameLabel)
         
         NSLayoutConstraint.activate([
-            coinNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: kMarginWidth),
+            coinNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: kMarginWidth),
             coinNameLabel.leftAnchor.constraint(equalTo: coinImageView.rightAnchor, constant: kMarginWidth)
         ])
         

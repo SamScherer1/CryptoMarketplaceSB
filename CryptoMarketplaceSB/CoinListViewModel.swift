@@ -7,11 +7,23 @@
 
 import UIKit
 
-
-struct CoinModel: Decodable {
+struct CoinModel: Decodable {//TODO: rename to CoinListItem
     let id: String
     let name: String
     let symbol: String
+    let creationDate = Date()
+}
+
+struct Coin {
+    let id: String
+    let name: String
+    let symbol: String
+    var image = UIImage.init(systemName: "circle.slash")
+    var formattedSymbol: String {
+        get {
+             return "(\(symbol))"
+         }
+    }
 }
 
 class CoinListViewModel {

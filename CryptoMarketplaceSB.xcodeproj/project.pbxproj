@@ -19,6 +19,7 @@
 		3ADD7B8829733EEA00A91085 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B8729733EEA00A91085 /* CoinListViewModel.swift */; };
 		3AE245212979DF67007B204B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE245202979DF67007B204B /* Colors.swift */; };
 		3AE245232979E919007B204B /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE245222979E919007B204B /* NavigationService.swift */; };
+		3AE24525297BED94007B204B /* CoinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE24524297BED94007B204B /* CoinDetailViewModel.swift */; };
 		3AF2F7272974E6BC00ED650B /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2F7262974E6BC00ED650B /* CoinDetailView.swift */; };
 		43908D5FF7E0901AFADAB525 /* Pods_CryptoMarketplaceSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738826BFD135AFAFCA2BAFEF /* Pods_CryptoMarketplaceSB.framework */; };
 		67A9D29AB3EA1BE9C6075340 /* Pods_CryptoMarketplaceSBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AD80ECD338C5D01CB463A5 /* Pods_CryptoMarketplaceSBTests.framework */; };
@@ -61,6 +62,7 @@
 		3ADD7B8729733EEA00A91085 /* CoinListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewModel.swift; sourceTree = "<group>"; };
 		3AE245202979DF67007B204B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3AE245222979E919007B204B /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
+		3AE24524297BED94007B204B /* CoinDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewModel.swift; sourceTree = "<group>"; };
 		3AF2F7262974E6BC00ED650B /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
 		4DEE64EEA447B9DC55D50BDF /* Pods-CryptoMarketplaceSB-CryptoMarketplaceSBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMarketplaceSB-CryptoMarketplaceSBUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoMarketplaceSB-CryptoMarketplaceSBUITests/Pods-CryptoMarketplaceSB-CryptoMarketplaceSBUITests.release.xcconfig"; sourceTree = "<group>"; };
 		738826BFD135AFAFCA2BAFEF /* Pods_CryptoMarketplaceSB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMarketplaceSB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				3ADD7B5829712E7400A91085 /* Assets.xcassets */,
 				3ADD7B5D29712E7400A91085 /* Info.plist */,
 				3AE245202979DF67007B204B /* Colors.swift */,
+				3AE24524297BED94007B204B /* CoinDetailViewModel.swift */,
 			);
 			path = CryptoMarketplaceSB;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				3ADD7B842973379100A91085 /* CoinListViewController.swift in Sources */,
 				3AF2F7272974E6BC00ED650B /* CoinDetailView.swift in Sources */,
 				3AE245212979DF67007B204B /* Colors.swift in Sources */,
+				3AE24525297BED94007B204B /* CoinDetailViewModel.swift in Sources */,
 				3ADD7B8829733EEA00A91085 /* CoinListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

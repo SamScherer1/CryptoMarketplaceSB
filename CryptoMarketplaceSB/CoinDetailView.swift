@@ -11,7 +11,7 @@ import Highcharts
 let kMarginWidth = 10.0
 
 class CoinDetailViewController: UIViewController {
-    var coin: CoinModel!
+    var viewModel: CoinDetailViewModel
     
     var coinNameLabel = labelWith(fontSize: 24, textColor: .darkGray)
     var coinSymbolLabel = labelWith(fontSize: 16, textColor: .lightGray)
@@ -26,8 +26,8 @@ class CoinDetailViewController: UIViewController {
         return imageView
     }()
     
-    init(coin: CoinModel) {
-        self.coin = coin
+    init(viewModel: CoinDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,16 +38,17 @@ class CoinDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        coinNameLabel.text = coin.name
-        coinSymbolLabel.text = formattedSymbol()
-        coinImageView.sd_setImage(with: URL(string: "https://coincheckup.com/images/coins/\(coin.id).png"))
+        coinNameLabel.text = viewModel.coin.name
+        coinSymbolLabel.text = viewModel.coin.formattedSymbol
+        coinImageView.image = viewModel.coin.image
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back",
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(goBack))
         navigationItem.leftBarButtonItem?.tintColor = .titleHighlight
         setupConstrints()
-        self.navigationItem.title = "\(coin.name) Details"
+        self.navigationItem.title = "\(viewModel.coin.name) Details"
     }
     
     func setupConstrints() {
@@ -74,11 +75,6 @@ class CoinDetailViewController: UIViewController {
             coinSymbolLabel.topAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: kMarginWidth),
             coinSymbolLabel.leftAnchor.constraint(equalTo: coinImageView.rightAnchor, constant: kMarginWidth)
         ])
-    }
-    
-    /// Basically just adds parentheses to the symbol...
-    func formattedSymbol() -> String {
-        return "(\(coin.symbol))"
     }
     
     static func labelWith(fontSize: Double, textColor: UIColor) -> UILabel {

@@ -33,8 +33,8 @@ class MyNavigationService {
         navigationController.popToRootViewController(animated: true)
     }
 
-    func goToDetailView(coin: CoinModel) {
-        let detailViewController = CoinDetailViewController(coin: coin)
+    func goToDetailView(coin: Coin) {
+        let detailViewController = CoinDetailViewController(viewModel: CoinDetailViewModel(coin: coin))
         navigationController.pushViewController(detailViewController, animated: true)
     }
 }

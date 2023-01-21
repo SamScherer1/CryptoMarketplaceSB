@@ -29,6 +29,7 @@ class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     }
 
     func setup() {
+        coinListViewModel.setup()//TODO: pass data changed closure in here...
         coinListViewModel.dataChanged = { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.reloadData()

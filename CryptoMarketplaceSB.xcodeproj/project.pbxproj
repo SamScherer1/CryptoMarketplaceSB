@@ -14,8 +14,7 @@
 		3ADD7B7129712E7400A91085 /* CryptoMarketplaceSBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B7029712E7400A91085 /* CryptoMarketplaceSBUITests.swift */; };
 		3ADD7B7329712E7400A91085 /* CryptoMarketplaceSBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B7229712E7400A91085 /* CryptoMarketplaceSBUITestsLaunchTests.swift */; };
 		3ADD7B82297259C400A91085 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B81297259C400A91085 /* CoinTableViewCell.swift */; };
-		3ADD7B842973379100A91085 /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B832973379100A91085 /* CoinListViewController.swift */; };
-		3ADD7B862973380100A91085 /* CoinListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B852973380100A91085 /* CoinListTableView.swift */; };
+		3ADD7B862973380100A91085 /* CoinListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B852973380100A91085 /* CoinListTableViewController.swift */; };
 		3ADD7B8829733EEA00A91085 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7B8729733EEA00A91085 /* CoinListViewModel.swift */; };
 		3AE245212979DF67007B204B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE245202979DF67007B204B /* Colors.swift */; };
 		3AE245232979E919007B204B /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE245222979E919007B204B /* NavigationService.swift */; };
@@ -57,8 +56,7 @@
 		3ADD7B7029712E7400A91085 /* CryptoMarketplaceSBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMarketplaceSBUITests.swift; sourceTree = "<group>"; };
 		3ADD7B7229712E7400A91085 /* CryptoMarketplaceSBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMarketplaceSBUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3ADD7B81297259C400A91085 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
-		3ADD7B832973379100A91085 /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
-		3ADD7B852973380100A91085 /* CoinListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListTableView.swift; sourceTree = "<group>"; };
+		3ADD7B852973380100A91085 /* CoinListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListTableViewController.swift; sourceTree = "<group>"; };
 		3ADD7B8729733EEA00A91085 /* CoinListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewModel.swift; sourceTree = "<group>"; };
 		3AE245202979DF67007B204B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3AE245222979E919007B204B /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
@@ -138,9 +136,8 @@
 			children = (
 				3ADD7B4F29712E7300A91085 /* AppDelegate.swift */,
 				3ADD7B5129712E7300A91085 /* SceneDelegate.swift */,
-				3ADD7B832973379100A91085 /* CoinListViewController.swift */,
 				3ADD7B8729733EEA00A91085 /* CoinListViewModel.swift */,
-				3ADD7B852973380100A91085 /* CoinListTableView.swift */,
+				3ADD7B852973380100A91085 /* CoinListTableViewController.swift */,
 				3ADD7B81297259C400A91085 /* CoinTableViewCell.swift */,
 				3AF2F7262974E6BC00ED650B /* CoinDetailView.swift */,
 				3AE245222979E919007B204B /* NavigationService.swift */,
@@ -420,11 +417,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADD7B5029712E7300A91085 /* AppDelegate.swift in Sources */,
-				3ADD7B862973380100A91085 /* CoinListTableView.swift in Sources */,
+				3ADD7B862973380100A91085 /* CoinListTableViewController.swift in Sources */,
 				3ADD7B5229712E7300A91085 /* SceneDelegate.swift in Sources */,
 				3ADD7B82297259C400A91085 /* CoinTableViewCell.swift in Sources */,
 				3AE245232979E919007B204B /* NavigationService.swift in Sources */,
-				3ADD7B842973379100A91085 /* CoinListViewController.swift in Sources */,
 				3AF2F7272974E6BC00ED650B /* CoinDetailView.swift in Sources */,
 				3AE245212979DF67007B204B /* Colors.swift in Sources */,
 				3AE24525297BED94007B204B /* CoinDetailViewModel.swift in Sources */,

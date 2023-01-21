@@ -8,48 +8,41 @@
 import UIKit
 import SDWebImage
 
-class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
+class CoinListTableViewController: UITableViewController {
     var coinListViewModel = CoinListViewModel()
     
     init(coinListViewModel: CoinListViewModel = CoinListViewModel()) {
         self.coinListViewModel = coinListViewModel
-        super.init(frame: CGRect(), style: .plain)
-        self.delegate = self
+        super.init(style: .plain)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func didMoveToWindow() {
-        super.didMoveToWindow()
-        DispatchQueue.main.async { [weak self] in
-            self?.setup()
-        }
-    }
 
     func setup() {
+        self.navigationItem.title = "Supported Coins"
         coinListViewModel.setupWith { [weak self] in
             DispatchQueue.main.async { [weak self] in
-                self?.reloadData()
+                self?.tableView.reloadData()
             }
         }
         
-        register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
-        dataSource = self
+        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
+        tableView.dataSource = self
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCoin = coinListViewModel.coinList[indexPath.row]
         coinListViewModel.pushDetailFor(coin: selectedCoin)
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coinListViewModel.coinList.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! CoinTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! CoinTableViewCell
         let coin = coinListViewModel.coinList[indexPath.row]
         cell.configure(with:coin)
         return cell

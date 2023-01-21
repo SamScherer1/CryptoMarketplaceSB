@@ -10,11 +10,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var mainVC: CoinListTableViewController?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        let navigationController = UINavigationController(rootViewController: CoinListViewController())
+        mainVC = CoinListTableViewController()
+        mainVC?.setup()
+        let navigationController = UINavigationController(rootViewController: mainVC!)
         self.window?.rootViewController = navigationController
         MyNavigationService.shared.initialize(navigationController: navigationController)
         window?.windowScene = windowScene

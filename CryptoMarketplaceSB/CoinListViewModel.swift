@@ -58,7 +58,8 @@ class CoinListViewModel {
         task.resume()
     }
     
-    func setup() {
+    func setupWith(dataChanged: @escaping (() -> ())) {
+        self.dataChanged = dataChanged
         getCoinListItems(completion: { [weak self] coinListItems in
             guard let self else { return }
             guard let coinListItems = coinListItems else { return }

@@ -29,13 +29,12 @@ class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     }
 
     func setup() {
-        coinListViewModel.setup()//TODO: pass data changed closure in here...
-        coinListViewModel.dataChanged = { [weak self] in
+        coinListViewModel.setupWith { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.reloadData()
             }
         }
-
+        
         register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         dataSource = self
     }
@@ -43,9 +42,6 @@ class CoinListTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCoin = coinListViewModel.coinList[indexPath.row]
         coinListViewModel.pushDetailFor(coin: selectedCoin)
-        //TODO: delete below...
-//        coinListViewModel.pushDetailFor(coin: CoinDataModel)
-//        navigationController.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
